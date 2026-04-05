@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:opsz,wght@9..144,400;9..144,700&display=swap");
+
+:root {
+  --ink: #111111;
+  --sand: #fffaf1;
+  --warm: #ff6f3c;
+  --warm-dark: #d64f21;
+  --teal: #157a6e;
+  --line: #1b1b1b1f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Fraunces", serif;
+  background: linear-gradient(140deg, #ffe9d4 0%, #eefcf8 45%, #f5f7ff 100%);
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.aurora {
+  position: absolute;
+  width: 32rem;
+  height: 32rem;
+  border-radius: 50%;
+  filter: blur(46px);
+  opacity: 0.45;
+  animation: drift 11s ease-in-out infinite alternate;
+}
+
+.a1 {
+  background: #ffb292;
+  top: -8rem;
+  left: -10rem;
+}
+
+.a2 {
+  background: #8ce4d8;
+  right: -8rem;
+  bottom: -7rem;
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.hero {
+  animation: rise 500ms ease-out;
+}
+
+.badge {
+  display: inline-block;
+  margin: 0;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #ffffffb2;
+  font-size: 0.85rem;
+}
+
+h1,
+h2 {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.03em;
+  margin: 0.25rem 0 0.5rem;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 4.8rem);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+.hero p {
+  margin: 0.45rem 0;
+  font-size: 1rem;
+}
+
+.grid {
+  margin-top: 1.3rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panel {
+  background: #fffdfa;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 18px 40px #10101014;
+  animation: rise 680ms ease-out;
+}
+
+label {
+  display: block;
+  margin: 0.65rem 0 0.3rem;
+  font-size: 0.95rem;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #00000026;
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  background: #fffbf7;
+}
+
+input:focus {
+  outline: 2px solid #ff6f3c55;
+  border-color: var(--warm);
+}
+
+button {
+  margin-top: 0.9rem;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 1.1rem;
+  background: linear-gradient(120deg, var(--warm), var(--teal));
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.price {
+  margin: 0;
+  color: var(--warm-dark);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: 0.04em;
+}
+
+.hint {
+  color: #444;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: #222b;
+}
+
+.error {
+  margin: 0.7rem 0 0;
+  color: #a10303;
+  font-size: 0.92rem;
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(20px) translateX(14px);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shell {
+    padding: 1.25rem 0.9rem 2.2rem;
+  }
+}
